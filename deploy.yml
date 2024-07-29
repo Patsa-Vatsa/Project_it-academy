@@ -6,7 +6,6 @@ metadata:
     app: pocketbase
   annotations:
     keel.sh/policy: force
-    keel.sh/match-tag=true
     keel.sh/trigger: poll
     keel.sh/pollSchedule: "@every 1m"
 spec:
@@ -63,3 +62,18 @@ spec:
                 name: pocketbase-service
                 port:
                   number: 8080
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pv-claim-pocketbase
+  labels:
+    storage.k8s.io/name: nfs
+    storage.k8s.io/part-of: kubernetes-complete-reference
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs-client
+  resources:
+    requests:
+      storage: 1Gi
