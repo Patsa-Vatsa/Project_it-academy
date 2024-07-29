@@ -4,6 +4,10 @@ metadata:
   name: pocketbase
   labels:
     app: pocketbase
+  annotations:
+    keel.sh/policy: force
+    keel.sh/trigger: poll
+    keel.sh/pollSchedule: "@every 1m"
 spec:
   selector:
     matchLabels:
