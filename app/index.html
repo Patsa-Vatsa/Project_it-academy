@@ -1,39 +1,32 @@
-# Project report
-
-### **Project's reporter:** Myslivets Natalia
-### **Group number:** m-sa2-27-24
-
-### Description of application for deployment:
-
-1.  **Name of application:**  CMDtest
-2.  **Programming language is this application written in:**  Python (Flask)
-3.  **Data Base:**  PostgreSQL
-4. **Git repository:**  [->Click here<-](https://github.com/NataliaBelogolovaya/progect/)
-
-
-### Pipeline. High Level Design
-![progect_shem](https://github.com/NataliaBelogolovaya/progect/blob/main/project_shem.drawio.png)
-
-### Technologies which were used in project
-
-**Orchestration:**  Kubernetes
-**Automation tools:**  Ansible, Github Actions, ArgoCD.
-**SCM:**  GitHub
-**Notification:**  Slack
-**Other tools:**  Docker, Helm.
-
-### CI description: 
-
-By pushing to the git repository(main branch),github actions are launched. 
+<h1 id="project-report">Project report</h1>
+<h3 id="-project-s-reporter-myslivets-natalia"><strong>Project&#39;s reporter:</strong> Myslivets Natalia</h3>
+<h3 id="-group-number-m-sa2-27-24"><strong>Group number:</strong> m-sa2-27-24</h3>
+<h3 id="description-of-application-for-deployment-">Description of application for deployment:</h3>
+<ol>
+<li><strong>Name of application:</strong>  CMDtest</li>
+<li><strong>Programming language is this application written in:</strong>  Python (Flask)</li>
+<li><strong>Data Base:</strong>  PostgreSQL</li>
+<li><strong>Git repository:</strong>  <a href="https://github.com/NataliaBelogolovaya/progect/">-&gt;Click here&lt;-</a></li>
+</ol>
+<h3 id="pipeline-high-level-design">Pipeline. High Level Design</h3>
+<p><img src="https://github.com/NataliaBelogolovaya/progect/blob/main/project_shem.drawio.png" alt="progect_shem"></p>
+<h3 id="technologies-which-were-used-in-project">Technologies which were used in project</h3>
+<p><strong>Orchestration:</strong>  Kubernetes
+<strong>Automation tools:</strong>  Ansible, Github Actions, ArgoCD.
+<strong>SCM:</strong>  GitHub
+<strong>Notification:</strong>  Slack
+<strong>Other tools:</strong>  Docker, Helm.</p>
+<h3 id="ci-description-">CI description:</h3>
+<p>By pushing to the git repository(main branch),github actions are launched. 
 First job of the action launches ansible playbook on remote host and checks for database, users, accesses(+slack notification).
 Second job create a new image using the docker and pushed this image to dockerhub with a new tag (+slack notification). 
-Third job create a helm chart(test chart) and push new Helm Page into a special repository(+slack notification).
-
-### Deployment flows short description:
-
-AgroCD syncs with Helm repository, deploys application to kubernetes cluster.CPU load and memory usage can be seen in Grafana.
-
-### Rollback flow description and implementation:
-Rollback from ArgoCD web interface.
-
-### Links:
+Third job create a helm chart(test chart) and push new Helm Page into a special repository(+slack notification).</p>
+<h3 id="deployment-flows-short-description-">Deployment flows short description:</h3>
+<p>AgroCD syncs with Helm repository, deploys application to kubernetes cluster.CPU load and memory usage can be seen in Grafana.</p>
+<h3 id="rollback-flow-description-and-implementation-">Rollback flow description and implementation:</h3>
+<p>Rollback from ArgoCD web interface.</p>
+<h3 id="links-">Links:</h3>
+<ol>
+<li><a href="https://github.com/NataliaBelogolovaya/progect/">Progect repository</a></li>
+<li><a href="https://github.com/NataliaBelogolovaya/helm_pages">Git repository with Helm pages</a></li>
+</ol>
