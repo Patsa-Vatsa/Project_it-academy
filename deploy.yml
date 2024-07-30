@@ -29,6 +29,15 @@ spec:
           limits:
             cpu: 100m
             memory: 100Mi
+        volumeMounts:
+            - name: pocketbase-nfs
+              mountPath: /pb/pb_data
+      volumes:
+        - name: pocketbase-nfs
+          nfs:
+            server: 192.168.37.105
+            path: /mnt/IT-Academy/nfs-data/sa2-28-24/v_shvedov/pocketbase
+
 ---
 apiVersion: v1
 kind: Service
@@ -62,18 +71,3 @@ spec:
                 name: pocketbase-service
                 port:
                   number: 8080
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: pv-claim-pocketbase
-  labels:
-    storage.k8s.io/name: nfs
-    storage.k8s.io/part-of: kubernetes-complete-reference
-spec:
-  accessModes:
-    - ReadWriteMany
-  storageClassName: nfs-client
-  resources:
-    requests:
-      storage: 1Gi
