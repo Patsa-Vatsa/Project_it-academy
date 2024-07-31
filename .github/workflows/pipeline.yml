@@ -11,10 +11,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Build and push
+      id: gen_tags
+      run: |
+        if [[ $GITHUB_REF == 'refs/tags/'* ]]; then
+          TAGS='["'${GITHUB_REF/refs\/tags\//}'"]'
+        else
+          TAGS='["main"]'
+        fi
+        echo '::set-output name=tags::'$TAGS
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
         image: public/shvedov/pocketbase
+        tags: ${{ fromJson(steps.gen_tags.outputs.tags) }}
         #tags: v1, latest
         #addLatest: true
         registry: jfrog.it-academy.by
