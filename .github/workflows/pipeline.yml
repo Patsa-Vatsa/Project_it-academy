@@ -17,6 +17,6 @@ jobs:
         image: public/shvedov/pocketbase
         tags: latest
         registry: jfrog.it-academy.by
-        dockerfile: app/Dockerfile
+        dockerfile: /app/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
