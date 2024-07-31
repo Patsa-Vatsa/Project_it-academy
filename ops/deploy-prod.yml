@@ -1,11 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pb-prod-ns
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pocketbase
+  namespace: pb-prod-ns
   labels:
     app: pocketbase
   annotations:
-    keel.sh/policy: "glob:main-*"
+    keel.sh/policy: all
     #keel.sh/policy: All
     keel.sh/trigger: poll
     keel.sh/pollSchedule: "@every 1m"
@@ -20,7 +26,7 @@ spec:
     spec:
       containers:
       - name: pocketbase
-        image: jfrog.it-academy.by/public/shvedov/pocketbase:latest
+        image: jfrog.it-academy.by/public/shvedov/pocketbase:v1
         ports:
         - containerPort: 8080
         resources:
@@ -44,6 +50,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: pocketbase-service
+  namespace: pb-prod-ns
   labels:
     run: pocketbase-service
 spec:
@@ -57,6 +64,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-sa-pocketbase
+  namespace: pb-prod-ns
   annotations:
     nginx.ingress.kubernetes.io/server-alias: "pb.k8s-11.sa"
 spec:
