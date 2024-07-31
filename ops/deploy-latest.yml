@@ -1,11 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pb-test-ns
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pocketbase
+  namespace: pb-test-ns
   labels:
     app: pocketbase
   annotations:
-    keel.sh/policy: "glob:main-*"
+    keel.sh/policy: force
     #keel.sh/policy: All
     keel.sh/trigger: poll
     keel.sh/pollSchedule: "@every 1m"
@@ -44,6 +50,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: pocketbase-service
+  namespace: pb-test-ns
   labels:
     run: pocketbase-service
 spec:
@@ -57,8 +64,9 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-sa-pocketbase
+  namespace: pb-test-ns
   annotations:
-    nginx.ingress.kubernetes.io/server-alias: "pb.k8s-11.sa"
+    nginx.ingress.kubernetes.io/server-alias: "test-pb.k8s-11.sa"
 spec:
   ingressClassName: nginx
   rules:
