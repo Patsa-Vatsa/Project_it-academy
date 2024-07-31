@@ -19,6 +19,7 @@ jobs:
       with:
         image: public/shvedov/pocketbase
         #tags: ${{ fromJson(steps.gen_tags.outputs.tags) }}
+        tags: ${{ github.ref_name }}
         #tags: v1, latest
         #addLatest: true
         registry: jfrog.it-academy.by
