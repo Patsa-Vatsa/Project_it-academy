@@ -5,8 +5,8 @@ metadata:
   labels:
     app: pocketbase
   annotations:
-#    keel.sh/policy: force
-    keel.sh/policy: All
+    keel.sh/policy: "glob:main-*"
+    #keel.sh/policy: All
     keel.sh/trigger: poll
     keel.sh/pollSchedule: "@every 1m"
 spec:
