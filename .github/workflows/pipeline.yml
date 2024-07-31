@@ -16,7 +16,7 @@ jobs:
       with:
         image: public/shvedov/pocketbase
         #tags: v1, latest
-        addLatest: true
+        #addLatest: true
         registry: jfrog.it-academy.by
         dockerfile: app/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
