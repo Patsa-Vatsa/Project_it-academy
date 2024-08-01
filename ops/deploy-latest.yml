@@ -12,7 +12,7 @@ metadata:
     app: pocketbase
   annotations:
     keel.sh/policy: force
-    #keel.sh/policy: All
+    keel.sh/match-tag: "true"
     keel.sh/trigger: poll
     keel.sh/pollSchedule: "@every 1m"
 spec:
@@ -23,6 +23,7 @@ spec:
     metadata:
       labels:
         app: pocketbase
+      namespace: pb-test-ns
     spec:
       containers:
       - name: pocketbase
@@ -43,8 +44,7 @@ spec:
         - name: pocketbase-nfs
           nfs:
             server: 192.168.37.105
-            path: /mnt/IT-Academy/nfs-data/sa2-28-24/v_shvedov/pocketbase
-
+            path: /mnt/IT-Academy/nfs-data/sa2-28-24/v_shvedov/pocketbase-test
 ---
 apiVersion: v1
 kind: Service
