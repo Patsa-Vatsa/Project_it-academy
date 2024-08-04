@@ -11,7 +11,9 @@ metadata:
   labels:
     app: pocketbase
   annotations:
-    keel.sh/policy: all
+    #keel.sh/policy: all
+    keel.sh/policy: force
+    keel.sh/match-tag: "true"
     keel.sh/trigger: poll
     keel.sh/pollSchedule: "@every 1m"
 spec:
@@ -26,7 +28,8 @@ spec:
     spec:
       containers:
       - name: pocketbase
-        image: jfrog.it-academy.by/public/shvedov/pocketbase:v1.0.1
+        image: jfrog.it-academy.by/public/shvedov/pocketbase:prod
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         resources:
