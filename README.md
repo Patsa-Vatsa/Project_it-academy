@@ -10,13 +10,13 @@
         - embedded SQLite.
         - embedded web server.
         - DB administartion dashboard.
-2.  **Programming language is this application written in:**  JavaScript.
-3.  **Data Base:**  Embedded database (SQLite).
-4.  **Git repository:**  [->Project<-](https://github.com/Patsa-Vatsa/Project_it-academy).
+2.  **Data Base:**  Embedded database (SQLite).
+3.  **Git repository:**  [->Project<-](https://github.com/Patsa-Vatsa/Project_it-academy).
 
 
 ### Pipeline. High Level Design:
 ![Project_shem](Project.jpg)
+![Project_shem](app/Project.jpg)
 
 ### Technologies which were used in project:
 
@@ -76,3 +76,6 @@ How does new/upgrade deployment work
 - Reverting to previous/another revision is simple as git tag prod v1.2.2 --force && git push origin prod --force
 
 ### Links: [->Click here<-](https://github.com/Patsa-Vatsa/Project_it-academy)
+
+### Changelog
+- feature v1.0.4
