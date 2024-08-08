@@ -80,3 +80,4 @@ How does new/upgrade deployment work
 ### Changelog
 - feature v1.0.4
 - feature v1.0.5
+- feature v1.0.6
