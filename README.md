@@ -82,3 +82,4 @@ How does new/upgrade deployment work
 - feature v1.0.5
 - feature v1.0.6
 - feature v1.0.7
+- feature v1.0.8
