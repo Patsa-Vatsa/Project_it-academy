@@ -16,6 +16,7 @@ metadata:
     keel.sh/match-tag: "true"
     keel.sh/trigger: poll
     keel.sh/pollSchedule: "@every 1m"
+    keel.sh/approvals: "1"
 spec:
   selector:
     matchLabels:

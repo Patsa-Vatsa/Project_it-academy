@@ -13,6 +13,13 @@ jobs:
     - name: Checking out src
       uses: actions/checkout@v4
       
+    - name: Render index page
+      id: render
+      uses: fionn/render-markdown@master
+      
+    - name: Write HTML
+      run: echo '${{ steps.render.outputs.html }}' > app/index.html
+        
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
